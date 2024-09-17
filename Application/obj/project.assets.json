@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\matia\\OneDrive\\Escritorio\\Application\\Application.csproj",
+      "projectUniqueName": "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "C:\\Users\\matia\\OneDrive\\Escritorio\\Application\\Application.csproj",
+      "projectPath": "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\Application\\Application.csproj",
       "packagesPath": "C:\\Users\\matia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\matia\\OneDrive\\Escritorio\\Application\\obj\\",
+      "outputPath": "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\matia\\AppData\\Roaming\\NuGet\\NuGet.Config",

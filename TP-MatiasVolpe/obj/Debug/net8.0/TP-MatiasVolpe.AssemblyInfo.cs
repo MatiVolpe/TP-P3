@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TP-MatiasVolpe")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0ed349323b1d68d38336560a170bee4666e1d23a")]
 [assembly: System.Reflection.AssemblyProductAttribute("TP-MatiasVolpe")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TP-MatiasVolpe")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
