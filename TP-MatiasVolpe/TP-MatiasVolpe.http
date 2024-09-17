@@ -1,0 +1,6 @@
+@TP_MatiasVolpe_HostAddress = http://localhost:5286
+
+GET {{TP_MatiasVolpe_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
