@@ -1,7 +1,36 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\TP-MatiasVolpe\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6417CA40-127C-438F-A07D-B59425C8780F}|TP-MatiasVolpe.csproj|c:\\users\\matia\\onedrive\\escritorio\\tp-p3\\tp-matiasvolpe\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6417CA40-127C-438F-A07D-B59425C8780F}|TP-MatiasVolpe.csproj|solutionrelative:controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7693250-0714-4015-B9A1-574077A0FF04}|..\\Application\\Application.csproj|c:\\users\\matia\\onedrive\\escritorio\\tp-p3\\application\\models\\request\\authenticationrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD34A487-34FC-4390-BC4E-174B87F5A244}|..\\Infrastructure\\Infrastructure.csproj|c:\\users\\matia\\onedrive\\escritorio\\tp-p3\\infrastructure\\data\\personrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7693250-0714-4015-B9A1-574077A0FF04}|..\\Application\\Application.csproj|c:\\users\\matia\\onedrive\\escritorio\\tp-p3\\application\\interfaces\\icustomauthenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6417CA40-127C-438F-A07D-B59425C8780F}|TP-MatiasVolpe.csproj|c:\\users\\matia\\onedrive\\escritorio\\tp-p3\\tp-matiasvolpe\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{6417CA40-127C-438F-A07D-B59425C8780F}|TP-MatiasVolpe.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6417CA40-127C-438F-A07D-B59425C8780F}|TP-MatiasVolpe.csproj|c:\\users\\matia\\onedrive\\escritorio\\tp-p3\\tp-matiasvolpe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6417CA40-127C-438F-A07D-B59425C8780F}|TP-MatiasVolpe.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD34A487-34FC-4390-BC4E-174B87F5A244}|..\\Infrastructure\\Infrastructure.csproj|c:\\users\\matia\\onedrive\\escritorio\\tp-p3\\infrastructure\\service\\authenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6417CA40-127C-438F-A07D-B59425C8780F}|TP-MatiasVolpe.csproj|c:\\users\\matia\\onedrive\\escritorio\\tp-p3\\tp-matiasvolpe\\tp-matiasvolpe.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{6417CA40-127C-438F-A07D-B59425C8780F}|TP-MatiasVolpe.csproj|solutionrelative:tp-matiasvolpe.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,6 +55,110 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AuthenticationService.cs",
+              "DocumentMoniker": "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\Infrastructure\\Service\\AuthenticationService.cs",
+              "RelativeDocumentMoniker": "..\\Infrastructure\\Service\\AuthenticationService.cs",
+              "ToolTip": "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\Infrastructure\\Service\\AuthenticationService.cs",
+              "RelativeToolTip": "..\\Infrastructure\\Service\\AuthenticationService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T02:48:22.745Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TP-MatiasVolpe",
+              "DocumentMoniker": "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\TP-MatiasVolpe\\TP-MatiasVolpe.csproj",
+              "RelativeDocumentMoniker": "TP-MatiasVolpe.csproj",
+              "ToolTip": "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\TP-MatiasVolpe\\TP-MatiasVolpe.csproj",
+              "RelativeToolTip": "TP-MatiasVolpe.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAABQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-11-02T02:37:02.715Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\TP-MatiasVolpe\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\TP-MatiasVolpe\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAADQAAAAAAAAAAAAAAFIAAABOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T02:33:59.636Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\TP-MatiasVolpe\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\TP-MatiasVolpe\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-02T02:29:31.479Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ICustomAuthenticationService.cs",
+              "DocumentMoniker": "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\Application\\Interfaces\\ICustomAuthenticationService.cs",
+              "RelativeDocumentMoniker": "..\\Application\\Interfaces\\ICustomAuthenticationService.cs",
+              "ToolTip": "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\Application\\Interfaces\\ICustomAuthenticationService.cs",
+              "RelativeToolTip": "..\\Application\\Interfaces\\ICustomAuthenticationService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T02:26:16.174Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PersonRepository.cs",
+              "DocumentMoniker": "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\Infrastructure\\Data\\PersonRepository.cs",
+              "RelativeDocumentMoniker": "..\\Infrastructure\\Data\\PersonRepository.cs",
+              "ToolTip": "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\Infrastructure\\Data\\PersonRepository.cs",
+              "RelativeToolTip": "..\\Infrastructure\\Data\\PersonRepository.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAwwDcAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T02:05:20.596Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthenticationRequest.cs",
+              "DocumentMoniker": "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\Application\\Models\\Request\\AuthenticationRequest.cs",
+              "RelativeDocumentMoniker": "..\\Application\\Models\\Request\\AuthenticationRequest.cs",
+              "ToolTip": "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\Application\\Models\\Request\\AuthenticationRequest.cs",
+              "RelativeToolTip": "..\\Application\\Models\\Request\\AuthenticationRequest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T01:53:15.808Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthenticationController.cs",
+              "DocumentMoniker": "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\TP-MatiasVolpe\\Controllers\\AuthenticationController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthenticationController.cs",
+              "ToolTip": "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\TP-MatiasVolpe\\Controllers\\AuthenticationController.cs",
+              "RelativeToolTip": "Controllers\\AuthenticationController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T01:50:38.911Z",
+              "EditorCaption": ""
             }
           ]
         },
