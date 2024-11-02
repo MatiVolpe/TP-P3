@@ -11,6 +11,7 @@ namespace Domain.Interfaces
     {
         IEnumerable<Person> GetAll();
         Person? GetById(int id);
+        Person? GetByEmail(string email);
         void Add(Person person);
         void Update(Person person);
         void Delete(int id);

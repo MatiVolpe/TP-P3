@@ -28,6 +28,11 @@ namespace Infrastructure.Data
             return _context.Persons.Find(id);
         }
 
+        public Person? getByEmail(int id)
+        {
+            return _context.Persons.Find(id);
+        }
+
         public void Add(Person person)
         {
             _context.Persons.Add(person); 
