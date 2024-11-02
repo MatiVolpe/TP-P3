@@ -30,7 +30,7 @@ namespace Infrastructure.Data
 
         public Person? GetByEmail(string email)
         {
-            return _context.Persons.Find(email);
+            return _context.Persons.FirstOrDefault(p => p.Email == email);
         }
 
         public void Add(Person person)

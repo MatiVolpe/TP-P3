@@ -26,7 +26,7 @@ namespace Infrastructure.Service
                 return null;
 
             var person = _personRepository.GetByEmail(authenticationRequest.Email);
-            if (person != null)
+            if (person == null)
             {
                 //validar que el usuario este habilitado
                 throw new UnauthorizedAccessException("El usuario no existe.");

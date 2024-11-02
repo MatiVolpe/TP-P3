@@ -1,5 +1,6 @@
 ﻿using Application.Interfaces;
 using Application.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,7 +8,7 @@ namespace TP_MatiasVolpe.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-
+    [Authorize]
     public class PersonController : ControllerBase
     {
         private readonly IPersonService _personService;
