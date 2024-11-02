@@ -30,9 +30,6 @@
             "projectReferences": {
               "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\Domain\\Domain.csproj": {
                 "projectPath": "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\Domain\\Domain.csproj"
-              },
-              "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -142,6 +139,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -203,6 +208,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\Application\\Application.csproj"
+              },
               "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\Domain\\Domain.csproj": {
                 "projectPath": "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\Domain\\Domain.csproj"
               }
@@ -224,6 +232,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.10, )"

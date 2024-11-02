@@ -28,9 +28,9 @@ namespace Infrastructure.Data
             return _context.Persons.Find(id);
         }
 
-        public Person? getByEmail(int id)
+        public Person? GetByEmail(string email)
         {
-            return _context.Persons.Find(id);
+            return _context.Persons.Find(email);
         }
 
         public void Add(Person person)

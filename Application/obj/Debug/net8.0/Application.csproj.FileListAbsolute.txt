@@ -8,9 +8,7 @@ C:\Users\matia\OneDrive\Escritorio\TP-P3\Application\bin\Debug\net8.0\Applicatio
 C:\Users\matia\OneDrive\Escritorio\TP-P3\Application\bin\Debug\net8.0\Application.dll
 C:\Users\matia\OneDrive\Escritorio\TP-P3\Application\bin\Debug\net8.0\Application.pdb
 C:\Users\matia\OneDrive\Escritorio\TP-P3\Application\bin\Debug\net8.0\Domain.dll
-C:\Users\matia\OneDrive\Escritorio\TP-P3\Application\bin\Debug\net8.0\Infrastructure.dll
 C:\Users\matia\OneDrive\Escritorio\TP-P3\Application\bin\Debug\net8.0\Domain.pdb
-C:\Users\matia\OneDrive\Escritorio\TP-P3\Application\bin\Debug\net8.0\Infrastructure.pdb
 C:\Users\matia\OneDrive\Escritorio\TP-P3\Application\obj\Debug\net8.0\Applicat.44B5EDA2.Up2Date
 C:\Users\matia\OneDrive\Escritorio\TP-P3\Application\obj\Debug\net8.0\Application.dll
 C:\Users\matia\OneDrive\Escritorio\TP-P3\Application\obj\Debug\net8.0\refint\Application.dll

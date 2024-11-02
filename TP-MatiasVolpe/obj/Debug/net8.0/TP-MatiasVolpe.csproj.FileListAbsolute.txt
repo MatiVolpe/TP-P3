@@ -147,3 +147,17 @@ C:\Users\matia\OneDrive\Escritorio\TP-P3\TP-MatiasVolpe\bin\Debug\net8.0\Microso
 C:\Users\matia\OneDrive\Escritorio\TP-P3\TP-MatiasVolpe\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\matia\OneDrive\Escritorio\TP-P3\TP-MatiasVolpe\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\matia\OneDrive\Escritorio\TP-P3\TP-MatiasVolpe\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\matia\OneDrive\Escritorio\TP-P3\TP-MatiasVolpe\bin\Debug\net8.0\Azure.Core.dll
+C:\Users\matia\OneDrive\Escritorio\TP-P3\TP-MatiasVolpe\bin\Debug\net8.0\Microsoft.Graph.dll
+C:\Users\matia\OneDrive\Escritorio\TP-P3\TP-MatiasVolpe\bin\Debug\net8.0\Microsoft.Graph.Core.dll
+C:\Users\matia\OneDrive\Escritorio\TP-P3\TP-MatiasVolpe\bin\Debug\net8.0\Microsoft.IdentityModel.Validators.dll
+C:\Users\matia\OneDrive\Escritorio\TP-P3\TP-MatiasVolpe\bin\Debug\net8.0\Microsoft.Kiota.Abstractions.dll
+C:\Users\matia\OneDrive\Escritorio\TP-P3\TP-MatiasVolpe\bin\Debug\net8.0\Microsoft.Kiota.Authentication.Azure.dll
+C:\Users\matia\OneDrive\Escritorio\TP-P3\TP-MatiasVolpe\bin\Debug\net8.0\Microsoft.Kiota.Http.HttpClientLibrary.dll
+C:\Users\matia\OneDrive\Escritorio\TP-P3\TP-MatiasVolpe\bin\Debug\net8.0\Microsoft.Kiota.Serialization.Form.dll
+C:\Users\matia\OneDrive\Escritorio\TP-P3\TP-MatiasVolpe\bin\Debug\net8.0\Microsoft.Kiota.Serialization.Json.dll
+C:\Users\matia\OneDrive\Escritorio\TP-P3\TP-MatiasVolpe\bin\Debug\net8.0\Microsoft.Kiota.Serialization.Multipart.dll
+C:\Users\matia\OneDrive\Escritorio\TP-P3\TP-MatiasVolpe\bin\Debug\net8.0\Microsoft.Kiota.Serialization.Text.dll
+C:\Users\matia\OneDrive\Escritorio\TP-P3\TP-MatiasVolpe\bin\Debug\net8.0\Std.UriTemplate.dll
+C:\Users\matia\OneDrive\Escritorio\TP-P3\TP-MatiasVolpe\bin\Debug\net8.0\System.ClientModel.dll
+C:\Users\matia\OneDrive\Escritorio\TP-P3\TP-MatiasVolpe\bin\Debug\net8.0\System.Memory.Data.dll

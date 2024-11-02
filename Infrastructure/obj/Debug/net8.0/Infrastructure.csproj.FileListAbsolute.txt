@@ -16,3 +16,5 @@ C:\Users\matia\OneDrive\Escritorio\TP-P3\Infrastructure\obj\Debug\net8.0\Infrast
 C:\Users\matia\OneDrive\Escritorio\TP-P3\Infrastructure\obj\Debug\net8.0\ref\Infrastructure.dll
 C:\Users\matia\OneDrive\Escritorio\TP-P3\Infrastructure\bin\Debug\net8.0\Infrastructure.runtimeconfig.json
 C:\Users\matia\OneDrive\Escritorio\TP-P3\Infrastructure\obj\Debug\net8.0\Infrastructure.genruntimeconfig.cache
+C:\Users\matia\OneDrive\Escritorio\TP-P3\Infrastructure\bin\Debug\net8.0\Application.dll
+C:\Users\matia\OneDrive\Escritorio\TP-P3\Infrastructure\bin\Debug\net8.0\Application.pdb

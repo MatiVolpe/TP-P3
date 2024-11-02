@@ -3,7 +3,7 @@ using Application.Services;
 using Domain.Entities;
 using Domain.Interfaces;
 using Infrastructure.Data;
-using Microsoft.AspNetCore.Authentication;
+using Infrastructure.Service;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;

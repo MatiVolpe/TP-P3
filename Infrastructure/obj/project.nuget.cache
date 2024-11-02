@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "0eItLOCaQVf7OyQsEz0xSxmUF3XMq0b1+J4IlRwflbfKjf3yUTXMdg4kAd6HQFtw6b7yqqJ8LLQBx3770gHGfA==",
+  "dgSpecHash": "6EwJ8f8xtMx8meKylrVjByH2hy/Zruc0grX+MGTFkBQynnlLFBMLToE+As38fiBivE9RiV9hTwVKDMm8c6WOyg==",
   "success": true,
   "projectFilePath": "C:\\Users\\matia\\OneDrive\\Escritorio\\TP-P3\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\matia\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\matia\\.nuget\\packages\\azure.core\\1.43.0\\azure.core.1.43.0.nupkg.sha512",
     "C:\\Users\\matia\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\matia\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.10\\microsoft.aspnetcore.authentication.jwtbearer.8.0.10.nupkg.sha512",
     "C:\\Users\\matia\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\matia\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.3\\microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",
     "C:\\Users\\matia\\.nuget\\packages\\microsoft.codeanalysis.common\\4.5.0\\microsoft.codeanalysis.common.4.5.0.nupkg.sha512",
