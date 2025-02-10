@@ -23,21 +23,16 @@ namespace Infrastructure.Service
         private Person? ValidateUser(AuthenticationRequest authenticationRequest)
         {
             if (string.IsNullOrEmpty(authenticationRequest.Email) || string.IsNullOrEmpty(authenticationRequest.Password))
-                return null;
+                throw new UnauthorizedAccessException("Email and password are required.");
 
             var person = _personRepository.GetByEmail(authenticationRequest.Email);
-            if (person == null)
-            {
-                //validar que el usuario este habilitado
-                throw new UnauthorizedAccessException("El usuario no existe.");
-            }
-            if (person != null && person.Password == authenticationRequest.Password)
-            {
-                return person;
-            }
 
-            throw new UnauthorizedAccessException("Credenciales inválidas.");
+            if (person == null || person.Password != authenticationRequest.Password)
+                throw new UnauthorizedAccessException("Invalid credentials.");
+
+            return person;
         }
+
 
         public string Autenticar(AuthenticationRequest authenticationRequest)
         {

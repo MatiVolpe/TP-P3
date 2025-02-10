@@ -8,24 +8,30 @@ using System.Text;
 
 namespace TP_MatiasVolpe.Controllers
 {
-    [Route("api/authentication")]
     [ApiController]
+    [Route("api/[controller]")]
     public class AuthenticationController : ControllerBase
     {
-        private readonly IConfiguration _config;
-        private readonly ICustomAuthenticationService _customAuthenticationService;
+        private readonly ICustomAuthenticationService _authenticationService;
 
-        public AuthenticationController(IConfiguration config, ICustomAuthenticationService customAuthenticationService)
+        public AuthenticationController(ICustomAuthenticationService authenticationService)
         {
-            _config = config;
-            _customAuthenticationService = customAuthenticationService;
+            _authenticationService = authenticationService;
         }
 
-        [HttpPost("authenticate")]
-        public ActionResult<string> Authenticate(AuthenticationRequest authenticationRequest)
+        [HttpPost("login")]
+        public IActionResult Login(AuthenticationRequest request)
         {
-            string token = _customAuthenticationService.Autenticar(authenticationRequest);
-            return Ok(token);
+            try
+            {
+                var token = _authenticationService.Autenticar(request);
+                return Ok(new { Token = token });
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(new { Message = ex.Message });
+            }
         }
     }
+
 }
