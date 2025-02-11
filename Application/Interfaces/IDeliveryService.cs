@@ -10,7 +10,7 @@ namespace Application.Interfaces
     public interface IDeliveryService
     {
         Task<DeliveryDto> GetByIdDeliveryAsync(int id);
-        Task CreateDeliveryAsync(DeliveryDto deliveryDto);
-        Task DeleteDeliveryAsync(int id);
+        Task<DeliveryDto> CreateDeliveryAsync(CreateDeliveryDto deliveryDto);
+        Task<bool> DeleteDeliveryAsync(int id);
     }
 }

@@ -52,7 +52,7 @@ namespace Infrastructure.Service
             {
                 new Claim("sub", user.IdPerson.ToString()),
                 new Claim("email", user.Email),
-                new Claim("role", user.Role.ToString()),
+                new Claim(ClaimTypes.Role, user.Role.ToString()),
                 new Claim("name", user.Name.ToString()),
             };
 

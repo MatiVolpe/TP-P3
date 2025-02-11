@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,9 +29,11 @@ namespace Infrastructure.Data
             return await _context.Products.FindAsync(id);
         }
 
-        public async Task<Product?> GetByNameAsync(string name)
+        public async Task<IEnumerable<Product>> GetByNameAsync(string name)
         {
-            return await _context.Products.FirstOrDefaultAsync(p => p.ProductName == name);
+            return await _context.Products
+                .Where(p => p.ProductName.ToLower().Contains(name.ToLower()))
+                .ToListAsync();
         }
 
         public async Task CreateAsync(Product product)
@@ -53,6 +56,11 @@ namespace Infrastructure.Data
                 _context.Products.Remove(product);
                 await _context.SaveChangesAsync();
             }
+        }
+
+        public async Task<bool> AnyAsync(Expression<Func<Product, bool>> predicate)
+        {
+            return await _context.Products.AnyAsync(predicate);
         }
     }
 }

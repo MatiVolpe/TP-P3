@@ -52,34 +52,65 @@ namespace Application.Services
             };
         }
 
-        public void ChangePassword(int id, string newPassword)
+        public bool ChangePassword(int id, string newPassword)
         {
             var person = _personRepository.GetById(id);
-            if (person != null)
+            if (person == null)
             {
-                person.Password = newPassword; 
-                _personRepository.Update(person);
+                return false;
             }
+
+            person.Password = newPassword;
+            _personRepository.Update(person);
+            return true;
         }
 
-        public void ChangeShift(int id, string newShift)
+
+        public bool ChangeShift(int id, string newShift)
         {
-            var person = _personRepository.GetById(id);
-            if (person != null)
+            if (!string.Equals(newShift, "day", StringComparison.OrdinalIgnoreCase) &&
+                !string.Equals(newShift, "night", StringComparison.OrdinalIgnoreCase))
             {
-                person.Shift = newShift;
-                _personRepository.Update(person);
+                throw new ArgumentException("El turno debe ser 'day' o 'night'.");
             }
+
+            var person = _personRepository.GetById(id);
+            if (person == null)
+            {
+                return false;
+            }
+
+            person.Shift = newShift;
+            _personRepository.Update(person);
+            return true;
         }
+
 
         public void Create(CreatePersonDto dto)
         {
+            if (dto.Role != 1 && dto.Role != 2)
+            {
+                throw new ArgumentException("El rol debe ser 1 (usuario normal) o 2 (administrador).");
+            }
+
+            if (!string.Equals(dto.Shift, "day", StringComparison.OrdinalIgnoreCase) &&
+                !string.Equals(dto.Shift, "night", StringComparison.OrdinalIgnoreCase))
+            {
+                throw new ArgumentException("El turno a elegir debe ser day (para el turno de día) o night (para el turno noche).");
+            }
+
+            var existingPerson = _personRepository.GetByEmail(dto.Email);
+            if (existingPerson != null)
+            {
+                throw new ArgumentException("El correo electrónico ya está en uso.");
+            }
+
             var person = new Person
             {
                 Name = dto.Name,
                 Email = dto.Email,
                 Phone = dto.Phone,
-                Password = dto.Password, 
+                Password = dto.Password,
                 Role = dto.Role,
                 Shift = dto.Shift
             };
@@ -87,9 +118,17 @@ namespace Application.Services
             _personRepository.Add(person);
         }
 
-        public void Delete(int id)
+
+        public bool Delete(int id)
         {
+            var person = _personRepository.GetById(id);
+            if (person == null)
+            {
+                return false;
+            }
+
             _personRepository.Delete(id);
+            return true;
         }
     }
 

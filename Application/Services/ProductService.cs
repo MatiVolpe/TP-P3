@@ -1,6 +1,5 @@
 ﻿using Application.Interfaces;
 using Application.Models;
-using AutoMapper;
 using Domain.Entities;
 using Domain.Interfaces;
 using System;
@@ -14,46 +13,87 @@ namespace Application.Services
     public class ProductService : IProductService
     {
         private readonly IProductRepository _productRepository;
-        private readonly IMapper _mapper;
+        private readonly ISupplierRepository _supplierRepository;
 
-        public ProductService(IProductRepository productRepository, IMapper mapper)
+        public ProductService(IProductRepository productRepository, ISupplierRepository supplierRepository)
         {
             _productRepository = productRepository;
-            _mapper = mapper;
+            _supplierRepository = supplierRepository;
         }
+
 
         public async Task<IEnumerable<ProductDto>> GetAllProductsAsync()
         {
             var products = await _productRepository.GetAllAsync();
-            return _mapper.Map<IEnumerable<ProductDto>>(products);
+            return products.Select(product => new ProductDto
+            {
+                IdProduct = product.IdProduct,
+                ProductName = product.ProductName,
+                Stock = product.Stock,
+                IdSupplier = product.IdSupplier
+            }).ToList();
         }
 
         public async Task<ProductDto?> GetProductByIdAsync(int id)
         {
             var product = await _productRepository.GetByIdAsync(id);
-            return _mapper.Map<ProductDto>(product);
+            if (product == null) return null;
+
+            return new ProductDto
+            {
+                IdProduct = product.IdProduct,
+                ProductName = product.ProductName,
+                Stock = product.Stock,
+                IdSupplier = product.IdSupplier
+            };
         }
 
-        public async Task<ProductDto?> GetProductByNameAsync(string name)
+        public async Task<IEnumerable<ProductDto>> GetProductByNameAsync(string name)
         {
-            var product = await _productRepository.GetByNameAsync(name);
-            return _mapper.Map<ProductDto>(product);
+            var products = await _productRepository.GetByNameAsync(name);
+
+            return products.Select(product => new ProductDto
+            {
+                IdProduct = product.IdProduct,
+                ProductName = product.ProductName,
+                Stock = product.Stock,
+                IdSupplier = product.IdSupplier
+            }).ToList();
         }
 
-        public async Task CreateProductAsync(ProductDto productDto)
+
+        public async Task<ProductDto> CreateProductAsync(CreateProductDto productDto)
         {
-            var product = _mapper.Map<Product>(productDto);
+            var supplierExists = await _supplierRepository.GetByIdAsync(productDto.IdSupplier);
+            if (supplierExists == null)
+            {
+                throw new ArgumentException($"No se encontró un proveedor con ID = {productDto.IdSupplier}.");
+            }
+
+            var product = new Product
+            {
+                ProductName = productDto.ProductName,
+                Stock = productDto.Stock,
+                IdSupplier = productDto.IdSupplier
+            };
+
             await _productRepository.CreateAsync(product);
+
+            return new ProductDto
+            {
+                IdProduct = product.IdProduct,
+                ProductName = product.ProductName,
+                Stock = product.Stock,
+                IdSupplier = product.IdSupplier
+            };
         }
+
+
 
         public async Task DeleteProductAsync(int id)
         {
             await _productRepository.DeleteAsync(id);
         }
-
-        public Task UpdateProductPriceAsync(int id, decimal newPrice)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
+

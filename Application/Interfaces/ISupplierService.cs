@@ -11,7 +11,7 @@ namespace Application.Interfaces
     {
         Task<IEnumerable<SupplierDto>> GetAllAsync();
         Task<SupplierDto?> GetByIdAsync(int id);
-        Task CreateAsync(SupplierDto supplierDto);
-        Task DeleteAsync(int id);
+        Task<SupplierDto> CreateAsync(CreateSupplierDto supplierDto);
+        Task<bool> DeleteAsync(int id);
     }
 }

@@ -12,10 +12,10 @@ namespace Application.Interfaces
     {
         IEnumerable<PersonDto> GetAll();
         PersonDto? GetById(int id);
-        void ChangePassword(int id, string newPassword);
-        void ChangeShift(int id, string newShift);
+        bool ChangePassword(int id, string newPassword);
+        bool ChangeShift(int id, string newShift);
         void Create(CreatePersonDto dto);
-        void Delete(int id);
+        bool Delete(int id);
     }
 
 }

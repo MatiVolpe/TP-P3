@@ -23,17 +23,32 @@ namespace TP_MatiasVolpe.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateDelivery([FromBody] DeliveryDto deliveryDto)
+        public async Task<IActionResult> CreateDelivery([FromBody] CreateDeliveryDto deliveryDto)
         {
-            await _deliveryService.CreateDeliveryAsync(deliveryDto);
-            return CreatedAtAction(nameof(GetByIdDelivery), new { id = deliveryDto.IdDelivery }, deliveryDto);
+            try
+            {
+                var createdDelivery = await _deliveryService.CreateDeliveryAsync(deliveryDto);
+                return CreatedAtAction(nameof(GetByIdDelivery), new { id = createdDelivery.IdDelivery }, createdDelivery);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
         }
+
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteDelivery(int id)
         {
-            await _deliveryService.DeleteDeliveryAsync(id);
-            return NoContent();
+            bool deleted = await _deliveryService.DeleteDeliveryAsync(id);
+
+            if (!deleted)
+            {
+                return NotFound(new { message = $"No se encontró una entrega con ID = {id}." });
+            }
+
+            return Ok(new { message = $"La entrega con ID = {id} fue eliminada correctamente." });
         }
+
     }
 }

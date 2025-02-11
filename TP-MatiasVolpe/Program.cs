@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
+using System.Security.Claims;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -55,15 +56,16 @@ builder.Services.AddAuthentication("Bearer")
     {
         options.TokenValidationParameters = new()
         {
-            ValidateIssuer = false,
-            ValidateAudience = false,
+            ValidateIssuer = false, 
+            ValidateAudience = false, 
             ValidateIssuerSigningKey = true,
             ValidIssuer = builder.Configuration["AutenticacionService:Issuer"],
             ValidAudience = builder.Configuration["AutenticacionService:Audience"],
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(builder.Configuration["AutenticacionService:SecretForKey"]))
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(builder.Configuration["AutenticacionService:SecretForKey"])),
+            RoleClaimType = ClaimTypes.Role 
         };
-    }
-);
+    });
+
 
 
 //db
@@ -97,6 +99,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

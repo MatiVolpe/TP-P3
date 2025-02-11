@@ -12,4 +12,9 @@ namespace Application.Models
         public string? Company { get; set; }
     }
 
+    public class CreateSupplierDto
+    {
+        public string Company { get; set; }
+    }
+
 }

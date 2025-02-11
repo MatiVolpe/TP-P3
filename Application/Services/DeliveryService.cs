@@ -1,6 +1,5 @@
 ﻿using Application.Interfaces;
 using Application.Models;
-using AutoMapper;
 using Domain.Entities;
 using Domain.Interfaces;
 using System;
@@ -15,48 +14,97 @@ namespace Application.Services
     {
         private readonly IDeliveryRepository _deliveryRepository;
         private readonly IProductRepository _productRepository;
-        private readonly IMapper _mapper;
+        private readonly IPersonRepository _personRepository;
 
-        public DeliveryService(IDeliveryRepository deliveryRepository, IProductRepository productRepository, IMapper mapper)
+        public DeliveryService(IDeliveryRepository deliveryRepository, IProductRepository productRepository, IPersonRepository personRepository)
         {
             _deliveryRepository = deliveryRepository;
             _productRepository = productRepository;
-            _mapper = mapper;
+            _personRepository = personRepository;
         }
 
-        public async Task<DeliveryDto> GetByIdDeliveryAsync(int id)
+        public async Task<DeliveryDto?> GetByIdDeliveryAsync(int id)
         {
             var delivery = await _deliveryRepository.GetByIdAsync(id);
-            return _mapper.Map<DeliveryDto>(delivery);
+            if (delivery == null) return null;
+
+            return new DeliveryDto
+            {
+                IdDelivery = delivery.IdDelivery,
+                IdPerson = delivery.IdPerson,
+                IdProduct = delivery.IdProduct,
+                Quantity = delivery.Quantity,
+                Date = delivery.Date,
+                Type = delivery.Type
+            };
         }
 
-        public async Task CreateDeliveryAsync(DeliveryDto deliveryDto)
+        public async Task<DeliveryDto> CreateDeliveryAsync(CreateDeliveryDto deliveryDto)
         {
-            var delivery = _mapper.Map<Delivery>(deliveryDto);
+            // Validate if Person exists
+            var personExists =  _personRepository.GetById(deliveryDto.IdPerson);
+            if (personExists == null)
+            {
+                throw new ArgumentException($"No se encontró una persona con ID = {deliveryDto.IdPerson}.");
+            }
 
-            var product = await _productRepository.GetByIdAsync(delivery.IdProduct);
+            // Validate if Product exists
+            var product = await _productRepository.GetByIdAsync(deliveryDto.IdProduct);
             if (product == null)
-                throw new Exception("Product not found.");
+            {
+                throw new ArgumentException($"No se encontró un producto con ID = {deliveryDto.IdProduct}.");
+            }
 
-            // Adjust product stock based on delivery type
-            if (delivery.Type == 1) // Entrance
+            // Create Delivery Object
+            var delivery = new Delivery
+            {
+                IdPerson = deliveryDto.IdPerson,
+                IdProduct = deliveryDto.IdProduct,
+                Quantity = deliveryDto.Quantity,
+                Date = deliveryDto.Date,
+                Type = deliveryDto.Type
+            };
+
+            // Stock Logic
+            if (delivery.Type == 1) // Entrada de producto (Incrementa Stock)
             {
                 product.Stock += delivery.Quantity;
             }
-            else if (delivery.Type == 2) // Exit
+            else if (delivery.Type == 2) // Salida de Producto (Reduce Stock)
             {
                 if (product.Stock < delivery.Quantity)
-                    throw new Exception("Insufficient stock for delivery.");
+                    throw new ArgumentException("Stock insuficiente para realizar la entrega.");
+
                 product.Stock -= delivery.Quantity;
             }
 
             await _productRepository.UpdateAsync(product);
             await _deliveryRepository.AddAsync(delivery);
+
+            return new DeliveryDto
+            {
+                IdDelivery = delivery.IdDelivery,
+                IdPerson = delivery.IdPerson,
+                IdProduct = delivery.IdProduct,
+                Quantity = delivery.Quantity,
+                Date = delivery.Date,
+                Type = delivery.Type
+            };
         }
 
-        public async Task DeleteDeliveryAsync(int id)
+
+        public async Task<bool> DeleteDeliveryAsync(int id)
         {
+            var delivery = await _deliveryRepository.GetByIdAsync(id);
+            if (delivery == null)
+            {
+                return false; // Delivery does not exist
+            }
+
             await _deliveryRepository.DeleteAsync(id);
+            return true; // Delivery deleted successfully
         }
+
     }
 }
+

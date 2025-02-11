@@ -32,28 +32,33 @@ namespace TP_MatiasVolpe.Controllers
         }
 
         [HttpGet("name/{name}")]
-        public async Task<ActionResult<ProductDto>> GetByName(string name)
+        public async Task<ActionResult<IEnumerable<ProductDto>>> GetByName(string name)
         {
-            var product = await _productService.GetProductByNameAsync(name);
-            if (product == null)
-                return NotFound();
+            var products = await _productService.GetProductByNameAsync(name);
 
-            return Ok(product);
+            if (!products.Any())
+            {
+                return NotFound(new { message = $"No se encontraron productos que contengan '{name}' en su nombre." });
+            }
+
+            return Ok(products);
         }
+
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] ProductDto productDto)
+        public async Task<IActionResult> Create([FromBody] CreateProductDto productDto)
         {
-            await _productService.CreateProductAsync(productDto);
-            return CreatedAtAction(nameof(GetById), new { id = productDto.IdProduct }, productDto);
+            try
+            {
+                var createdProduct = await _productService.CreateProductAsync(productDto);
+                return CreatedAtAction(nameof(GetById), new { id = createdProduct.IdProduct }, createdProduct);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
         }
 
-        [HttpPut("{id}/price")]
-        public async Task<IActionResult> ChangePrice(int id, [FromBody] decimal newPrice)
-        {
-            await _productService.UpdateProductPriceAsync(id, newPrice);
-            return NoContent();
-        }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)

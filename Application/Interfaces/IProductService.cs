@@ -1,7 +1,9 @@
 ﻿using Application.Models;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,9 +13,9 @@ namespace Application.Interfaces
     {
         Task<IEnumerable<ProductDto>> GetAllProductsAsync();
         Task<ProductDto?> GetProductByIdAsync(int id);
-        Task<ProductDto?> GetProductByNameAsync(string name);
-        Task CreateProductAsync(ProductDto productDto);
-        Task UpdateProductPriceAsync(int id, decimal newPrice);
+        Task<IEnumerable<ProductDto>> GetProductByNameAsync(string name);
+        Task<ProductDto> CreateProductAsync(CreateProductDto productDto);
         Task DeleteProductAsync(int id);
+
     }
 }

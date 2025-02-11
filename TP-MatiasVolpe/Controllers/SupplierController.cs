@@ -29,19 +29,38 @@ namespace TP_MatiasVolpe.Controllers
             if (supplier == null) return NotFound();
             return Ok(supplier);
         }
-
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] SupplierDto supplierDto)
+        public async Task<IActionResult> Create([FromBody] CreateSupplierDto supplierDto)
         {
-            await _supplierService.CreateAsync(supplierDto);
-            return CreatedAtAction(nameof(GetById), new { id = supplierDto.IdSupplier }, supplierDto);
+            var createdSupplier = await _supplierService.CreateAsync(supplierDto);
+
+            return CreatedAtAction(nameof(GetById), new { id = createdSupplier.IdSupplier }, createdSupplier);
         }
+
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            await _supplierService.DeleteAsync(id);
-            return NoContent();
+            try
+            {
+                bool deleted = await _supplierService.DeleteAsync(id);
+
+                if (!deleted)
+                {
+                    return NotFound(new { message = $"No se encontró un proveedor con ID = {id}." });
+                }
+
+                return Ok(new { message = $"El proveedor con ID = {id} fue eliminado correctamente." });
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Ocurrió un error inesperado.", details = ex.Message });
+            }
         }
+
     }
 }

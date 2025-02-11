@@ -16,5 +16,13 @@ namespace Application.Models
         public int Type { get; set; }
     }
 
+    public class CreateDeliveryDto
+    {
+        public int IdPerson { get; set; }
+        public int IdProduct { get; set; }
+        public int Quantity { get; set; }
+        public DateTime Date { get; set; }
+        public int Type { get; set; } // 1 = Entry, 2 = Exit
+    }
 
 }

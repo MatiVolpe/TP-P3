@@ -3,6 +3,7 @@ using Application.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace TP_MatiasVolpe.Controllers
 {
@@ -36,41 +37,91 @@ namespace TP_MatiasVolpe.Controllers
             return Ok(person);
         }
 
+        [Authorize(Roles = "2,3")]
         [HttpPost]
         public IActionResult Create([FromBody] CreatePersonDto dto)
         {
-            _personService.Create(dto);
+            var currentUserRole = int.Parse(User.FindFirst(ClaimTypes.Role)?.Value ?? "1");
 
-            var person = _personService.GetAll().LastOrDefault(); 
-
-            if (person == null)
+            if (dto.Role >= 2 && currentUserRole != 3)
             {
-                return BadRequest("Failed to create person.");
+                return Unauthorized();
             }
 
-            return CreatedAtAction(nameof(GetById), new { id = person.IdPerson }, person);
+            try
+            {
+                _personService.Create(dto);
+                return Ok(new { message = "Se creó correctamente la persona." });
+            }
+
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Ocurrió un error.", details = ex.Message });
+            }
         }
 
+        [Authorize(Roles = "2,3")]
         [HttpPut("{id}/password")]
         public IActionResult ChangePassword(int id, [FromBody] string newPassword)
         {
-            _personService.ChangePassword(id, newPassword);
-            return NoContent();
+            bool updated = _personService.ChangePassword(id, newPassword);
+
+            if (!updated)
+            {
+                return NotFound(new { message = $"No se encontró una persona con ID = {id}." });
+            }
+
+            return Ok(new { message = "Contraseña actualizada correctamente." });
         }
 
         [HttpPut("{id}/shift")]
         public IActionResult ChangeShift(int id, [FromBody] string newShift)
         {
-            _personService.ChangeShift(id, newShift);
-            return NoContent();
+            try
+            {
+                bool updated = _personService.ChangeShift(id, newShift);
+
+                if (!updated)
+                {
+                    return NotFound(new { message = $"No se encontró una persona con ID = {id}." });
+                }
+
+                return Ok(new { message = "Turno actualizado correctamente." });
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
         }
 
+        [Authorize(Roles = "2,3")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            _personService.Delete(id);
-            return NoContent();
+            var currentUserRole = int.Parse(User.FindFirst(ClaimTypes.Role)?.Value ?? "1");
+
+            var personToDelete = _personService.GetById(id);
+            if (personToDelete == null)
+            {
+                return NotFound(new { message = $"No se encontró una persona con ID = {id}." });
+            }
+
+            if (personToDelete.Role >= 2 && currentUserRole != 3)
+            {
+                return Unauthorized();
+            }
+
+            bool deleted = _personService.Delete(id);
+            if (!deleted)
+            {
+                return NotFound(new { message = $"No se encontró una persona con ID = {id}." });
+            }
+
+            return Ok(new { message = $"La persona con ID = {id} fue eliminada correctamente." });
         }
     }
-
 }

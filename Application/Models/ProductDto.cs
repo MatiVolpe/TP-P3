@@ -14,4 +14,11 @@ namespace Application.Models
         public int IdSupplier { get; set; }
     }
 
+    public class CreateProductDto
+    {
+        public string ProductName { get; set; }
+        public int Stock { get; set; }
+        public int IdSupplier { get; set; } // Ensure this Supplier exists
+    }
+
 }
