@@ -18,7 +18,6 @@ namespace Infrastructure.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // Configure primary keys for each entity
             modelBuilder.Entity<Person>().HasKey(x => x.IdPerson);
             modelBuilder.Entity<Product>().HasKey(x => x.IdProduct);
             modelBuilder.Entity<Delivery>().HasKey(x => x.IdDelivery);

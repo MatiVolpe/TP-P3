@@ -41,21 +41,18 @@ namespace Application.Services
 
         public async Task<DeliveryDto> CreateDeliveryAsync(CreateDeliveryDto deliveryDto)
         {
-            // Validate if Person exists
             var personExists =  _personRepository.GetById(deliveryDto.IdPerson);
             if (personExists == null)
             {
                 throw new ArgumentException($"No se encontró una persona con ID = {deliveryDto.IdPerson}.");
             }
 
-            // Validate if Product exists
             var product = await _productRepository.GetByIdAsync(deliveryDto.IdProduct);
             if (product == null)
             {
                 throw new ArgumentException($"No se encontró un producto con ID = {deliveryDto.IdProduct}.");
             }
 
-            // Create Delivery Object
             var delivery = new Delivery
             {
                 IdPerson = deliveryDto.IdPerson,
@@ -65,7 +62,6 @@ namespace Application.Services
                 Type = deliveryDto.Type
             };
 
-            // Stock Logic
             if (delivery.Type == 1) // Entrada de producto (Incrementa Stock)
             {
                 product.Stock += delivery.Quantity;
@@ -98,11 +94,11 @@ namespace Application.Services
             var delivery = await _deliveryRepository.GetByIdAsync(id);
             if (delivery == null)
             {
-                return false; // Delivery does not exist
+                return false;
             }
 
             await _deliveryRepository.DeleteAsync(id);
-            return true; // Delivery deleted successfully
+            return true;
         }
 
     }

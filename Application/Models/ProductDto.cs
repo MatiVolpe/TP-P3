@@ -18,7 +18,7 @@ namespace Application.Models
     {
         public string ProductName { get; set; }
         public int Stock { get; set; }
-        public int IdSupplier { get; set; } // Ensure this Supplier exists
+        public int IdSupplier { get; set; }
     }
 
 }

@@ -44,21 +44,18 @@ namespace Application.Services
 
         public async Task<bool> DeleteAsync(int id)
         {
-            // Check if supplier exists
             var supplier = await _supplierRepository.GetByIdAsync(id);
             if (supplier == null)
             {
                 return false;
             }
 
-            // Check if there are products associated with this supplier
             bool hasProducts = await _productRepository.AnyAsync(p => p.IdSupplier == id);
             if (hasProducts)
             {
                 throw new InvalidOperationException("Cannot delete supplier because there are products associated with it.");
             }
 
-            // Proceed with deletion
             await _supplierRepository.DeleteAsync(id);
             return true;
         }

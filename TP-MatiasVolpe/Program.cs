@@ -73,7 +73,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
-//services and repositories
+//services y repositories
 builder.Services.AddScoped<IPersonRepository, PersonRepository>();
 builder.Services.AddScoped<IPersonService, PersonService>();
 builder.Services.AddScoped<IDeliveryRepository, DeliveryRepository>();
@@ -85,8 +85,8 @@ builder.Services.AddScoped<ISupplierService, SupplierService>();
 builder.Services.AddScoped<ICustomAuthenticationService, AuthenticationService>();
 
 
-//automapper
-builder.Services.AddAutoMapper(typeof(Program));
+////automapper
+//builder.Services.AddAutoMapper(typeof(Program));
 
 
 var app = builder.Build();

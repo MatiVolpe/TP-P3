@@ -22,7 +22,7 @@ namespace Application.Models
         public int IdProduct { get; set; }
         public int Quantity { get; set; }
         public DateTime Date { get; set; }
-        public int Type { get; set; } // 1 = Entry, 2 = Exit
+        public int Type { get; set; }
     }
 
 }
